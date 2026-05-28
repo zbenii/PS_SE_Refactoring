@@ -34,27 +34,7 @@ public class Main {
                 switch (choice) {
                     case 1:
                         // Mitarbeiter hinzufügen
-                        System.out.print("Mitarbeitertyp eingeben (1. Vollzeit, 2. Teilzeit): ");
-                        int type = scanner.nextInt();
-
-                        System.out.print("ID eingeben: ");
-                        int id = scanner.nextInt();
-
-                        System.out.print("Name eingeben: ");
-                        scanner.nextLine(); // Neue Zeile nach nextInt() abfangen
-                        String name = scanner.nextLine();
-
-                        System.out.print("Gehalt eingeben: ");
-                        double salary = scanner.nextDouble();
-
-                        // Mitarbeiter entsprechend dem Typ erstellen und hinzufügen
-                        if (type == 1) {
-                            ms.addEmployee(new FullTimeEmployee(id, name, salary));
-                        } else {
-                            ms.addEmployee(new PartTimeEmployee(id, name, salary));
-                        }
-
-                        System.out.println("Mitarbeiter erfolgreich hinzugefügt!");
+					extracted(scanner, ms);
                         break;
 
                     case 2:
@@ -109,4 +89,28 @@ public class Main {
             }
         }
     }
+
+	private static void extracted(Scanner scanner, EmployeeManagementSystem ms) throws InvalidEmployeeDataException {
+		System.out.print("Mitarbeitertyp eingeben (1. Vollzeit, 2. Teilzeit): ");
+		int type = scanner.nextInt();
+
+		System.out.print("ID eingeben: ");
+		int id = scanner.nextInt();
+
+		System.out.print("Name eingeben: ");
+		scanner.nextLine(); // Neue Zeile nach nextInt() abfangen
+		String name = scanner.nextLine();
+
+		System.out.print("Gehalt eingeben: ");
+		double salary = scanner.nextDouble();
+
+		// Mitarbeiter entsprechend dem Typ erstellen und hinzufügen
+		if (type == 1) {
+		    ms.addEmployee(new FullTimeEmployee(id, name, salary));
+		} else {
+		    ms.addEmployee(new PartTimeEmployee(id, name, salary));
+		}
+
+		System.out.println("Mitarbeiter erfolgreich hinzugefügt!");
+	}
 }
