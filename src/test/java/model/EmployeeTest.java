@@ -17,19 +17,19 @@ class EmployeeTest {
 
     @Test
     void fullTimeBonusIsTenPercent() throws InvalidEmployeeDataException {
-        Employee e = new FullTimeEmployee(1, "Anna", 1000.0);
+        IEmployee e = new FullTimeEmployee(1, "Anna", 1000.0);
         assertEquals(100.0, e.calculateBonus(), DELTA);
     }
 
     @Test
     void partTimeBonusIsFivePercent() throws InvalidEmployeeDataException {
-        Employee e = new PartTimeEmployee(2, "Ben", 1000.0);
+        IEmployee e = new PartTimeEmployee(2, "Ben", 1000.0);
         assertEquals(50.0, e.calculateBonus(), DELTA);
     }
 
     @Test
     void gettersReturnConstructorValues() throws InvalidEmployeeDataException {
-        Employee e = new FullTimeEmployee(7, "Cara", 2500.0);
+        IEmployee e = new FullTimeEmployee(7, "Cara", 2500.0);
         assertAll(
                 () -> assertEquals(7, e.getId()),
                 () -> assertEquals("Cara", e.getName()),
@@ -39,7 +39,7 @@ class EmployeeTest {
 
     @Test
     void setSalaryUpdatesSalary() throws InvalidEmployeeDataException {
-        Employee e = new FullTimeEmployee(1, "Anna", 1000.0);
+        IEmployee e = new FullTimeEmployee(1, "Anna", 1000.0);
         e.setSalary(1200.0);
         assertEquals(1200.0, e.getSalary(), DELTA);
     }
