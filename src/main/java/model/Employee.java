@@ -2,7 +2,7 @@ package model;
 
 import exception.InvalidEmployeeDataException;
 
-public abstract class Employee implements Comparable<Employee> {
+public abstract class Employee implements Comparable<Employee>, IEmployee {
     private final int id;
     private final String name;
     private double salary;
@@ -18,24 +18,30 @@ public abstract class Employee implements Comparable<Employee> {
         this.salary = salary;
     }
 
-    public int getId() {
+    @Override
+	public int getId() {
         return this.id;
     }
 
-    public String getName() {
+    @Override
+	public String getName() {
         return this.name;
     }
 
-    public double getSalary() {
+    @Override
+	public double getSalary() {
         return this.salary;
     }
 
-    public void setSalary(double salary) {
+    @Override
+	public void setSalary(double salary) {
         this.salary = salary;
     }
 
-    public abstract double calculateBonus();
-    public abstract void displayDetails();
+    @Override
+	public abstract double calculateBonus();
+    @Override
+	public abstract void displayDetails();
 
     @Override
     public int compareTo(Employee other) {

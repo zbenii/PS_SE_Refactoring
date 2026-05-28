@@ -4,6 +4,7 @@ import exception.EmployeeNotFoundException;
 import exception.InvalidEmployeeDataException;
 import model.Employee;
 import model.FullTimeEmployee;
+import model.IEmployee;
 import util.SalaryComparator;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public final class EmployeeManagementSystem {
     }
 
     public void removeEmployee(int id) throws EmployeeNotFoundException {
-        Employee e = findEmployee(id);
+        IEmployee e = findEmployee(id);
         if (e == null) {
             throw new EmployeeNotFoundException("Employee with ID " + id + " not found.");
         }
@@ -27,7 +28,7 @@ public final class EmployeeManagementSystem {
     }
 
     public void displayAll() {
-        for (Employee e : employees) {
+        for (IEmployee e : employees) {
             e.displayDetails();
         }
     }
@@ -45,7 +46,7 @@ public final class EmployeeManagementSystem {
 
     public void promoteFullTimeEmployee(int id, double increase)
             throws EmployeeNotFoundException, InvalidEmployeeDataException {
-        Employee e = findEmployee(id);
+        IEmployee e = findEmployee(id);
         if (!(e instanceof FullTimeEmployee)) {
             throw new EmployeeNotFoundException("Full-time employee with ID " + id + " not found.");
         }
@@ -53,8 +54,8 @@ public final class EmployeeManagementSystem {
         System.out.println("Employee promoted successfully! New Salary: " + e.getSalary());
     }
 
-    private Employee findEmployee(int id) {
-        for (Employee e : employees) {
+    private IEmployee findEmployee(int id) {
+        for (IEmployee e : employees) {
             if (e.getId() == id) {
                 return e;
             }
