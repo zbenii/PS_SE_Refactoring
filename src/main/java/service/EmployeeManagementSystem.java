@@ -43,7 +43,7 @@ public final class EmployeeManagementSystem {
         employees.sort(new SalaryComparator());
     }
 
-    public void promoteFullTimeEmployee(int id, double increase)
+    public void promoteFullTimeEmployee(int id, double increase, String managerApproval)
             throws EmployeeNotFoundException, InvalidEmployeeDataException {
         Employee e = findEmployee(id);
         if (!(e instanceof FullTimeEmployee)) {

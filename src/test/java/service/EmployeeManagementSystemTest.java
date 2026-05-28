@@ -1,7 +1,6 @@
 package service;
 
 import exception.EmployeeNotFoundException;
-import exception.InvalidEmployeeDataException;
 import model.FullTimeEmployee;
 import model.PartTimeEmployee;
 import org.junit.jupiter.api.Test;
@@ -44,7 +43,7 @@ class EmployeeManagementSystemTest {
         EmployeeManagementSystem ms = new EmployeeManagementSystem();
         FullTimeEmployee ft = new FullTimeEmployee(5, "E5", 3000.0);
         ms.addEmployee(ft);
-        ms.promoteFullTimeEmployee(5, 500.0);
+        ms.promoteFullTimeEmployee(5, 500.0, "APPROVED");
         assertEquals(3500.0, ft.getSalary(), DELTA);
     }
 
@@ -52,13 +51,13 @@ class EmployeeManagementSystemTest {
     void promotePartTimeEmployeeThrows() throws Exception {
         EmployeeManagementSystem ms = new EmployeeManagementSystem();
         ms.addEmployee(new PartTimeEmployee(7, "PT", 100.0));
-        assertThrows(EmployeeNotFoundException.class, () -> ms.promoteFullTimeEmployee(7, 10.0));
+        assertThrows(EmployeeNotFoundException.class, () -> ms.promoteFullTimeEmployee(7, 10.0, "APPROVED"));
     }
 
     @Test
     void promoteNonExistingThrows() {
         EmployeeManagementSystem ms = new EmployeeManagementSystem();
-        assertThrows(EmployeeNotFoundException.class, () -> ms.promoteFullTimeEmployee(42, 10.0));
+        assertThrows(EmployeeNotFoundException.class, () -> ms.promoteFullTimeEmployee(42, 10.0, "APPROVED"));
     }
 
     @Test

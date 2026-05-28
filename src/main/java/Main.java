@@ -90,7 +90,7 @@ public class Main {
                         System.out.print("Gehaltserhöhung eingeben: ");
                         double increase = scanner.nextDouble();
 
-                        ms.promoteFullTimeEmployee(promoteId, increase);
+                        ms.promoteFullTimeEmployee(promoteId, increase, "APPROVED");
                         break;
 
                     case 7:
