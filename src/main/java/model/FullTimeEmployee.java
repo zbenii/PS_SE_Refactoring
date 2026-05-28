@@ -16,11 +16,6 @@ public final class FullTimeEmployee extends Employee implements Promotable {
     }
 
     @Override
-    public void displayDetails() {
-        System.out.println("ID: " + getId() + ", Name: " + getName() + ", Salary: " + getSalary() + ", Bonus: " + calculateBonus());
-    }
-
-    @Override
     public void promote(double salaryIncrease) throws InvalidEmployeeDataException {
         if (salaryIncrease < 0) {
             throw new InvalidEmployeeDataException("Increase must be non-negative.");
