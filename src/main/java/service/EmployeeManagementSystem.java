@@ -1,14 +1,14 @@
 package service;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import exception.EmployeeNotFoundException;
 import exception.InvalidEmployeeDataException;
 import model.Employee;
 import model.FullTimeEmployee;
 import util.SalaryComparator;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public final class EmployeeManagementSystem {
 
@@ -43,9 +43,9 @@ public final class EmployeeManagementSystem {
         employees.sort(new SalaryComparator());
     }
 
-    public void promoteFullTimeEmployee(int id, double increase)
+    public void promoteFullTimeEmployee(String managerApproval, int id, double increase)
             throws EmployeeNotFoundException, InvalidEmployeeDataException {
-        Employee e = findEmployee(id);
+        Employee e = findEmployee(id);/**/
         if (!(e instanceof FullTimeEmployee)) {
             throw new EmployeeNotFoundException("Full-time employee with ID " + id + " not found.");
         }

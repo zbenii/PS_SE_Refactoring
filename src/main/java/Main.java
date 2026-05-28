@@ -1,9 +1,10 @@
+import java.util.Scanner;
+
 import exception.EmployeeNotFoundException;
 import exception.InvalidEmployeeDataException;
 import model.FullTimeEmployee;
 import model.PartTimeEmployee;
 import service.EmployeeManagementSystem;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -90,7 +91,7 @@ public class Main {
                         System.out.print("Gehaltserhöhung eingeben: ");
                         double increase = scanner.nextDouble();
 
-                        ms.promoteFullTimeEmployee(promoteId, increase);
+                        ms.promoteFullTimeEmployee("APPROVED", promoteId, increase);
                         break;
 
                     case 7:
